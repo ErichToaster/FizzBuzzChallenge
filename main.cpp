@@ -14,7 +14,7 @@
 	                        bool dizz
 ;	                    //divisor of 120
 	                       bool prizz
-;	    //last prime before next fizz, buzz, rizz or jazz
+;	         //last prime before next rizz or jazz
 };	                      bool isPrime
 (	                          int n
 ){	//insert "return true;" here to test Prizz functionality
@@ -61,15 +61,13 @@
 (	                            i
 )	                 & !PrizzWasAlreadySaved
 ;	       PrizzWasAlreadySaved += VEC_bools[i].prizz
-;	                    bool thisIsFBRJ =
-	                   VEC_bools[i].fizz +
-	                   VEC_bools[i].buzz +
-	                   VEC_bools[i].rizz +
-	                    VEC_bools[i].jazz
-;	//only preserve PrizzWasAlreadySaved if this isn't FBRJ.
+;	                 bool thisIsRizzOrJazz =
+	           VEC_bools[i].rizz + VEC_bools[i].jazz
+;	       //only preserve PWAS if this isn't R or J.
 	            //Otherwise, the next number will
 	      //be getting a new context, so reset to zero.
-	PrizzWasAlreadySaved = PrizzWasAlreadySaved & !thisIsFBRJ
+	                 PrizzWasAlreadySaved =
+	        PrizzWasAlreadySaved & !thisIsRizzOrJazz
 ;}	            std::vector<std::string> Assets =
 {	   "", "Fizz", "Buzz", "Rizz", "Jazz", "Dizz", "Prizz"
 };	                std::string toPrint = ""

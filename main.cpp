@@ -17,18 +17,12 @@
 ;	         //last prime before next rizz or jazz
 };	                      bool isPrime
 (	                          int n
-){	//insert "return true;" here to test Prizz functionality
-	                      bool prime =
-(	                          n > 1
-);	                     int divisor = 2
-;	                          while
-(	                        prime &&
-(	                 divisor * divisor <= n
-)){	                         prime =
-(	                    n % divisor != 0
-);	                       divisor ++
-;}	                      return prime
-;}	                        int main
+){	                return !std::regex_match
+(	                       std::string
+(	                         n, '1'
+)	                      , std::regex
+(	                   "^1?$|^(11+?)\\1+$"
+));}	                        int main
 (){	              //for the sake of simplicity,
 	             //none of this is zero-indexed.
 	        //Instead, the index of a vector matches

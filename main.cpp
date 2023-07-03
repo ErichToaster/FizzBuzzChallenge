@@ -75,16 +75,21 @@
 (	                        int i = 1
 ;	                   i <= amountToPrint
 ;	                           i++
-){	                toPrint += std::to_string
-(	                            i
-);	                     toPrint += "\r"
-;	         toPrint += Assets[VEC_bools[i].fizz*1]
+){	         toPrint += Assets[VEC_bools[i].fizz*1]
 ;	         toPrint += Assets[VEC_bools[i].buzz*2]
 ;	         toPrint += Assets[VEC_bools[i].rizz*3]
 ;	         toPrint += Assets[VEC_bools[i].jazz*4]
 ;	         toPrint += Assets[VEC_bools[i].dizz*5]
 ;	         toPrint += Assets[VEC_bools[i].prizz*6]
-;	                     toPrint += "\n"
+;	              toPrint += std::regex_replace
+(	                     std::to_string
+(	                          i * !
+(	                      toPrint.back
+()	                         ^ '\n'
+))	                      , std::regex
+(	                          "^0$"
+)                                 , ""
+);                           toPrint += "\n"
 ;}	                  std::cout << toPrint
 ;	                        return 0
 ;}
